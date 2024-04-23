@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from apps.base.models import CustomUser, Todo
+from apps.users.models import CustomUser, Todo
 
 class UserSerializers(serializers.ModelSerializer):
     class Meta:

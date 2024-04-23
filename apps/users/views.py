@@ -1,5 +1,5 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
-from apps.base.models import Todo, CustomUser
+from apps.users.models import Todo, CustomUser
 from apps.serializers import TodoSerializers, UserSerializers
 
 class UserAPIView(CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView):
