@@ -1,8 +1,8 @@
 from django.urls import path
-from apps.users.views import *
+from apps.todo.views import *
 
 urlpatterns = [
-    path('todos/', TodoAPIView.as_view(), name='todo-list'),
-    path('todos/', TodoDetailAPIView.as_view(), name='todo-detail'),
-    path('delete_user_todos/', TodoCreateAPIView.as_view(), name='delete-user-todos'),
+    path('todos/', ToDoAPIView.as_view(), name='todo-list'),
+    path('todos/', DestroyAPIView.as_view(), name='todo-detail'),
+    path('delete_user_todos/', CreateAPIView.as_view(), name='delete-user-todos'),
 ]

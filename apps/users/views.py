@@ -1,9 +1,16 @@
-from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
-from apps.users.models import Todo, User
-from Todo.apps.users.serializers import TodoSerializers, UserSerializers
+from rest_framework import mixins
+from rest_framework.viewsets import GenericViewSet
+from apps.users.models import  User
+from apps.users.serializers import  UserSerializers
 
-class UserAPIView(CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView):
+class UserAPIViewSet(GenericViewSet,
+                     mixins.CreateModelMixin,
+                     mixins.RetrieveModelMixin,
+                     mixins.UpdateModelMixin,
+                     mixins.DestroyModelMixin
+                     ):
     queryset = User.objects.all()
     serializer_class = UserSerializers
+
 
 

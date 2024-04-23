@@ -1,10 +1,16 @@
+from rest_framework.routers import DefaultRouter
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from django.urls import path
-from apps.users.views import *
+
+from apps.users.views import UserAPIViewSet
+
+
+router = DefaultRouter()
+router.register('user', UserAPIViewSet, 'api_users')
 
 urlpatterns = [
-    path('users/', UserAPIView.as_view(), name='user-list'),
-    path('users/', UserAPIView.as_view(), name='user-detail'),
-    path('todos/', TodoAPIView.as_view(), name='todo-list'),
-    path('todos/', TodoDetailAPIView.as_view(), name='todo-detail'),
-    path('delete_user_todos/', TodoCreateAPIView.as_view(), name='delete-user-todos'),
+    path('login/', TokenObtainPairView.as_view(), name="api_user_login"),
+    path('refresh/', TokenRefreshView.as_view(), name="api_user_refresh"),
 ]
+
+urlpatterns += router.urls
