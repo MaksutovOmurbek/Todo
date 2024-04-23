@@ -1,6 +1,6 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, UpdateAPIView, DestroyAPIView
 from apps.users.models import Todo, CustomUser
-from apps.serializers import TodoSerializers, UserSerializers
+from Todo.apps.users.serializers import TodoSerializers, UserSerializers
 
 class UserAPIView(CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView):
     queryset = CustomUser.objects.all()
